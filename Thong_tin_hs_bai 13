@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <conio.h>
+#include <string.h>
+#define max 30
+struct hocsinh
+	{
+	char maso[9];
+	char hoten[31];
+	float diemtoan;
+	}hs[30],tg;
+int main()
+{
+	int i,j, sosv;
+	for(i=0;i<max;i++)
+	{
+		printf("\nNHAP THONG TIN HOC SINH THU %d: \n",i+1);
+		printf("Mssv: "); fflush(stdin); gets(hs[i].maso);
+		if(strcmp(hs[i].maso,"$$$")==0) break;
+		printf("Ho ten: "); fflush(stdin); gets(hs[i].hoten);
+		printf("Diem toan: "); scanf("%f",&hs[i].diemtoan);
+	}
+	sosv=i;
+	for(i=0;i<sosv-1;i++)
+	for(j=i+1;j<sosv;j++)
+		if(hs[i].diemtoan<hs[j].diemtoan)
+		{
+			tg=hs[i];
+			hs[i]=hs[j];
+			hs[j]=tg;
+		}
+	printf("\nDANH SACH SV SAP XEP THEO THU TU GIAM DAN DIEM TOAN:\n\n");
+	printf("|---|--------|------------------------------|---------|\n");
+	printf("|STT|  MSSV  |           HO VA TEN          |DIEM TOAN|");
+	for(i=0;i<sosv;i++)
+	{
+	printf("\n|---|--------|------------------------------|---------|\n");
+		printf("|%3d|%-8s|%-30s|%-.1f      |",i+1,hs[i].maso,hs[i].hoten,hs[i].diemtoan);
+	}
+	printf("\n|---|--------|------------------------------|---------|\n");
+	getch();
+}
