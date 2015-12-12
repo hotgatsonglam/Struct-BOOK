@@ -1,3 +1,3 @@
-Copyright by Deluxe.
+Copyright by Deluxe. 12/2015
 Struct.
-Lesson 13 of IT.
+Lesson of IT
