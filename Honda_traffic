@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <conio.h>
+#include <string.h>
+#define max 30
+struct
+{
+	char hang[20];
+	int namsx;
+}xemay[30];
+int main()
+{
+	int i;
+	printf("\n---THONG TIN VE CAC XE MAY---\n");
+	for(i=0;i<max;i++)
+	{
+		printf("Hang san xuat cua xe may thu %d: ",i+1);
+		fflush(stdin); gets(xemay[i].hang);
+		printf("Nam san xuat: ");
+		scanf("%d",&xemay[i].namsx);
+		printf("\n");
+	}
+	int k=0;
+	for(i=0;i<max;i++)
+		if(strcmp(xemay[i].hang,"Honda")==0)
+			k++;
+	printf("\nTong so xe cua hang HONDA la: %d",k);
+	printf("\nThong tin nam san xuat cua tung chiec la:\n");
+	printf("\n|---|--------------------|------|");
+	printf("\n|%-3s|%-20s|%-6s|","STT","    HANG SAN XUAT   ","NAM SX");
+	printf("\n|---|--------------------|------|\n");
+	for(i=0;i<max;i++)
+		if(strcmp(xemay[i].hang,"Honda")==0)
+		{
+			printf("| %-2d|%-20s| %-5d|",i+1,xemay[i].hang,xemay[i].namsx);
+			printf("\n|---|--------------------|------|\n");
+		}
+	getch();
+}
